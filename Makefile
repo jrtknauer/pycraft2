@@ -22,7 +22,7 @@ VENV_DIR := $(shell pyenv root)/versions/$(VENV)
 
 ## Directories
 REQUIREMENTS_DIR := requirements
-PYTHON_ARTIFACTS := *.egg-info .tox/
+PYTHON_ARTIFACTS := *.egg-info .tox/ .ruff_cache/
 BUILD_ARTIFACTS := dist/ build/
 
 ## Executables
@@ -30,6 +30,10 @@ PYTHON ?= $(VENV_DIR)/bin/python
 PIP ?= $(VENV_DIR)/bin/pip
 PIP_COMPILE ?= $(VENV_DIR)/bin/pip-compile
 PIP_SYNC ?= $(VENV_DIR)/bin/pip-sync
+BLACK ?= $(VENV_DIR)/bin/black
+ISORT ?= $(VENV_DIR)/bin/isort
+PYRIGHT ?= $(VENV_DIR)/bin/pyright
+RUFF ?= $(VENV_DIR)/bin/ruff
 TOX ?= $(VENV_DIR)/bin/tox
 PYENV ?= pyenv
 
@@ -88,6 +92,8 @@ depends:
 # Test targets
 ###############################################################################
 
+# Runs all tox environments, including any linter checks. Use format to apply
+# linter changes in the virtual environment.
 .PHONY: check
 check:
 	$(TOX)
@@ -96,8 +102,13 @@ check:
 # Lint targets
 ###############################################################################
 
+# Run formatters and check results with linters in virtual environment
 .PHONY: format
 format:
+	$(ISORT) .
+	$(BLACK) .
+	$(RUFF) check .
+	$(PYRIGHT) --venvpath $(VENV_DIR)
 
 ###############################################################################
 # Documentation targets
