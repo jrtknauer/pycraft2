@@ -4,3 +4,35 @@
 #
 #    pip-compile --allow-unsafe --resolver=backtracking requirements/test.in
 #
+cachetools==5.3.1
+    # via tox
+chardet==5.1.0
+    # via tox
+colorama==0.4.6
+    # via tox
+distlib==0.3.6
+    # via virtualenv
+filelock==3.12.2
+    # via
+    #   tox
+    #   virtualenv
+packaging==23.1
+    # via
+    #   pyproject-api
+    #   tox
+platformdirs==3.7.0
+    # via
+    #   tox
+    #   virtualenv
+pluggy==1.2.0
+    # via tox
+pyproject-api==1.5.2
+    # via tox
+tomli==2.0.1
+    # via
+    #   pyproject-api
+    #   tox
+tox==4.6.3
+    # via -r requirements/test.in
+virtualenv==20.23.1
+    # via tox
