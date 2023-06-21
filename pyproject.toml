@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycraft2"
+authors = [
+    { name = "Jarrett Knauer", email = "jrtknauer@proton.me" },
+]
+readme = "README.rst"
+version = "0.0.1"
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements/base.txt"] }
+optional-dependencies.test = { file = ["requirements/test.txt"] }
+optional-dependencies.dev = { file = ["requirements/dev.txt"] }
