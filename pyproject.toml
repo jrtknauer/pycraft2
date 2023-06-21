@@ -15,3 +15,14 @@ dynamic = ["dependencies", "optional-dependencies"]
 dependencies = { file = ["requirements/base.txt"] }
 optional-dependencies.test = { file = ["requirements/test.txt"] }
 optional-dependencies.dev = { file = ["requirements/dev.txt"] }
+
+[tool.black]
+
+[tool.isort]
+profile = "black"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+
+[tool.ruff]
+# Ruff shares the same default profile as Black.

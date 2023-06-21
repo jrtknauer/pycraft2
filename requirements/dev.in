@@ -1,2 +1,6 @@
 -c base.txt
 -c test.txt
+black
+isort
+pyright
+ruff
