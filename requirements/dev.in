@@ -1,6 +1,10 @@
 -c base.txt
 -c test.txt
 black
+click
 isort
+mypy-protobuf
 pyright
 ruff
+sphinx
+sphinx-rtd-theme

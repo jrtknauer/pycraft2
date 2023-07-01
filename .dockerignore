@@ -1,0 +1,20 @@
+# pycraft2
+s2client-proto/
+scripts/
+Makefile
+pycraft2.debug.log
+LICENSE
+pycraft2.egg-info/
+build/
+dist/
+.git
+.gitignore
+.gitmodules
+.python-version
+
+# Local development.
+.github/
+.ruff_cache/
+.tox/
+.vscode/
+.python-version

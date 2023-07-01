@@ -1,0 +1,5 @@
+aiohttp
+backoff
+structlog
+protobuf<4
+portpicker
