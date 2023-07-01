@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  test-pycraft2:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    command: python3 test/test_e2e.py

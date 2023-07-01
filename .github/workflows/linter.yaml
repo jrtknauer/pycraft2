@@ -1,4 +1,4 @@
-# This workflow runs all tox environments for the project against the Python version selected for development.
+# Workflow to fun all pycraft2 tox environments against the development Python version.
 
 name: Tox
 

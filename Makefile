@@ -36,6 +36,8 @@ PYRIGHT ?= $(VENV_DIR)/bin/pyright
 RUFF ?= $(VENV_DIR)/bin/ruff
 TOX ?= $(VENV_DIR)/bin/tox
 PYENV ?= pyenv
+SPHINX ?= $(VENV_DIR)/bin/sphinx-build
+SPHINX_API ?= $(VENV_DIR)/bin/sphinx-apidoc
 
 ## Flag defaults
 PIP_COMPILE_FLAGS ?= --allow-unsafe --resolver=backtracking
@@ -98,6 +100,12 @@ depends:
 check:
 	$(TOX)
 
+# Runs integration tests in docker.
+# Exclude from the base check as these tests can take some time to run.
+.PHONY: check-integration
+check-integration:
+	docker compose -f docker/docker-compose.yml up --build
+
 ###############################################################################
 # Lint targets
 ###############################################################################
@@ -105,10 +113,10 @@ check:
 # Run formatters and check results with linters in virtual environment
 .PHONY: format
 format:
-	$(ISORT) .
-	$(BLACK) .
-	$(RUFF) check .
-	$(PYRIGHT) --venvpath $(VENV_DIR)
+	$(ISORT) . example
+	$(BLACK) . example
+	$(RUFF) check . example
+	$(PYRIGHT) --venvpath $(VENV_DIR) . example
 
 ###############################################################################
 # Documentation targets
@@ -116,6 +124,7 @@ format:
 
 .PHONY: info
 info:
+	$(SPHINX) -b html docs/source docs/build/html
 
 ###############################################################################
 # Install targets

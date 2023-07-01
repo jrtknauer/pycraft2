@@ -4,12 +4,27 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycraft2"
+version = "0.0.1"
 authors = [
     { name = "Jarrett Knauer", email = "jrtknauer@proton.me" },
 ]
-readme = "README.rst"
-version = "0.0.1"
+license = {file = "LICENSE"}
+description = "A Python package for implementing scripted StarCraft II bots."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Games/Entertainment :: Real Time Strategy",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
+]
 dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools]
+packages = ["pycraft2"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements/base.txt"] }
@@ -17,12 +32,33 @@ optional-dependencies.test = { file = ["requirements/test.txt"] }
 optional-dependencies.dev = { file = ["requirements/dev.txt"] }
 
 [tool.black]
+extend-exclude = '''
+(
+    pycraft2/s2clientprotocol/*
+    | s2client-proto/*
+)
+'''
 
 [tool.isort]
 profile = "black"
+extend_skip_glob = [
+    "pycraft2/s2clientprotocol/*",
+    "s2client-proto/*",
+]
 
 [tool.pyright]
 typeCheckingMode = "strict"
+exclude = [
+    ".tmp/*",
+    ".tox/*",
+    "s2client-proto/*",
+    "pycraft2/s2clientprotocol/*",
+    "build/*",
+]
 
 [tool.ruff]
 # Ruff shares the same default profile as Black.
+extend-exclude = [
+    "pycraft2/s2clientprotocol/*",
+    "s2client-proto/*",
+]
