@@ -2,7 +2,7 @@
 
 ![alt text][bot_vs_bot_gif]
 
-[bot_vs_bot_gif]: https://github.com/jrtknauer/pycraft2/raw/main/.github/assets/pycraft2.gif "pycraft2 bot versus bot gif"
+[bot_vs_bot_gif]: https://github.com/jrtknauer/pycraft2/raw/main/.github/assets/pycraft2_bot_vs_bot.gif "pycraft2 bot versus bot gif"
 
 **pycraft2** is a Python package for implementing scripted bots for the real-time strategy game *StarCraft II*.
 
