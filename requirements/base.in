@@ -3,3 +3,4 @@ backoff
 structlog
 protobuf<4
 portpicker
+s2clientprotocol

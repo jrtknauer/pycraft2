@@ -23,10 +23,10 @@ import structlog
 # pycraft2.util.unused_port_generator because of dataclass limitations for default
 # arguments and generators.
 from portpicker import pick_unused_port  # pyright: ignore
+from s2clientprotocol.common_pb2 import Race
+from s2clientprotocol.sc2api_pb2 import AIBuild, Difficulty, PlayerType
 
 from pycraft2.bot import BotInterface
-from pycraft2.s2clientprotocol.common_pb2 import Race
-from pycraft2.s2clientprotocol.sc2api_pb2 import AIBuild, Difficulty, PlayerType
 
 LOGGER = structlog.get_logger(__name__)
 

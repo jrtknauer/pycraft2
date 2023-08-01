@@ -31,9 +31,8 @@ from abc import ABC, abstractmethod
 from dataclasses import InitVar, dataclass, field
 from typing import Any, Optional
 
-from pycraft2.map import Map
-from pycraft2.s2clientprotocol.common_pb2 import Race
-from pycraft2.s2clientprotocol.sc2api_pb2 import (
+from s2clientprotocol.common_pb2 import Race
+from s2clientprotocol.sc2api_pb2 import (
     AIBuild,
     Difficulty,
     InterfaceOptions,
@@ -53,6 +52,8 @@ from pycraft2.s2clientprotocol.sc2api_pb2 import (
     SpatialCameraSetup,
     Status,
 )
+
+from pycraft2.map import Map
 
 
 @dataclass(slots=True)

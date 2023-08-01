@@ -7,9 +7,10 @@ Public classes:
 """
 from dataclasses import dataclass
 
+from s2clientprotocol.sc2api_pb2 import Result
+
 from pycraft2.map import Map
 from pycraft2.player import Player
-from pycraft2.s2clientprotocol.sc2api_pb2 import Result
 
 
 @dataclass(frozen=True, slots=True)

@@ -8,3 +8,4 @@ pyright
 ruff
 sphinx
 sphinx-rtd-theme
+types-s2clientprotocol
