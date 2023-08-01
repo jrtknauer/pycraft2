@@ -73,20 +73,3 @@ outgrown the architectural foundations of **python-sc2**, so I have committed to
 For my personal interests, this is also an opportunity to experiment with various software designs, test new development
 tools, and document my findings to contribute to the [StarCraft II AI community discord](https://discordapp.com/invite/zXHU4wM)
 and [AI Arena](https://aiarena.net/wiki/bot-development/) bot development resources.
-
-> Why is **s2client-proto** a git submodule. Why are the compiled protocol buffer Python API source files embedded within
-> **pycraft2**? Why not just use [s2clientprotocol](https://pypi.org/project/s2clientprotocol/)?
-
-I am opting to not use the **s2clientprotocol** package published by Blizzard, and instead generate and integrate the
-Python API directly into **pycraft2** because `s2clientprotocol` is packaged without type stubs. While I have opened a
-[pull request for s2client-proto](https://github.com/Blizzard/s2client-proto/pull/204) to have the type stubs
-distributed with the official package, I do not expect the pull request to be accepted as the repository is in
-maintenance mode and has not accepted a pull request in over a year (and I have no desire to maintain a fork).
-
-As a contingency I have also opened a separate [pull request for typeshed](https://github.com/python/typeshed/pull/10372),
-but I also do not expect this pull request to be merged as the [mypy-protobuf](https://github.com/nipunn1313/mypy-protobuf)
-generated type-stubs fail for some of **typeshed**'s third-party tests.
-
-My solution is to integrate the generated Python API within **pycraft2** with with the type stubs - similar to how
-[cpp-sc2 fetches and compiles](https://github.com/cpp-sc2/cpp-sc2/blob/master/thirdparty/cmake/sc2protocol.cmake)
-the protocol buffers from source.
