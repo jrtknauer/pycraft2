@@ -9,6 +9,7 @@ from dataclasses import InitVar, dataclass, field
 from typing import Optional
 
 import structlog
+from s2clientprotocol.sc2api_pb2 import Status
 
 from pycraft2.match import Match
 from pycraft2.message import (
@@ -28,7 +29,6 @@ from pycraft2.message import (
 )
 from pycraft2.player import Bot, Computer, Player
 from pycraft2.port import MatchPortConfig
-from pycraft2.s2clientprotocol.sc2api_pb2 import Status
 from pycraft2.websocket import Websocket
 
 LOGGER = structlog.get_logger(__name__)

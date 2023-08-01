@@ -3,11 +3,11 @@
 from typing import Optional
 
 import pytest
+from s2clientprotocol.common_pb2 import Race
+from s2clientprotocol.sc2api_pb2 import AIBuild, Difficulty, PlayerType
 
 from pycraft2.bot import BotInterface
 from pycraft2.player import Bot, Computer, CreatePlayer, PlayerClientConfiguration
-from pycraft2.s2clientprotocol.common_pb2 import Race
-from pycraft2.s2clientprotocol.sc2api_pb2 import AIBuild, Difficulty, PlayerType
 
 
 class _MockBot(BotInterface):

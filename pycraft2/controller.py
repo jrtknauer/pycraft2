@@ -14,17 +14,13 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import structlog
+from s2clientprotocol.sc2api_pb2 import PlayerResult, ResponseObservation, Status
 
 from pycraft2.client import GameClient
 from pycraft2.match import Match, MatchResult
 from pycraft2.message import ResponseMessage
 from pycraft2.player import Bot
 from pycraft2.port import MatchPortConfig
-from pycraft2.s2clientprotocol.sc2api_pb2 import (
-    PlayerResult,
-    ResponseObservation,
-    Status,
-)
 from pycraft2.transport import Messenger
 
 LOGGER = structlog.get_logger(__name__)

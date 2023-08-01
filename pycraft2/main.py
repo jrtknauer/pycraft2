@@ -10,12 +10,13 @@ import argparse
 import asyncio
 from typing import Optional
 
+from s2clientprotocol.common_pb2 import Race
+
 from pycraft2.bot import BotInterface
 from pycraft2.ladder import LadderArg, LadderRunner
 from pycraft2.match import Match
 from pycraft2.player import CreatePlayer, PlayerClientConfiguration
 from pycraft2.runner import LocalRunner
-from pycraft2.s2clientprotocol.common_pb2 import Race
 
 
 def run_local_match(match_config: Match) -> None:
